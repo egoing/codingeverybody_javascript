@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<title>||Working with elements||</title>
+	</head>
+
+	<script type="text/javascript">
+		var my_div = null;
+		var newDiv = null;
+
+		function addElement() {
+			// create a new div element
+			// and give it some content
+			newDiv = document.createElement("div");
+			newContent = document.createTextNode("Hi there and greetings!");
+			newDiv.appendChild(newContent);
+			//add the text node to the newly created div.
+
+			// add the newly created element and it's content into the DOM
+			my_div = document.getElementById("org_div1");
+			document.body.insertBefore(newDiv, my_div);
+		}
+	</script>
+
+	<body>
+		<div id='org_div1'>
+			The text above has been created dynamically.
+		</div>
+		<script>
+			addElement();
+		</script>
+	</body>
+</html>
