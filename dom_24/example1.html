@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+		<script type="text/javascript">
+			function sync() {
+				// title 엘리먼트를 찾는다.
+				var title = document.getElementById('title');
+				// output 엘리먼트를 찾는다.
+				var output = document.getElementById('output');
+				// output 엘리먼트안에 title의 값을 삽입한다.
+				output.innerHTML = title.value;
+			}
+		</script>
+	</head>
+	<body>
+		<div style="background-color: gray;" id="output">
+			output
+		</div>
+		<input type="text" value="egoing" id="title" onchange="sync()">
+		<script>
+			sync();
+		</script>
+	</body>
+</html>
