@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+		<style tyep="text/css">
+			.hide {
+				display: none
+			}
+			#menu {
+				padding-left: 0;
+			}
+			#menu li {
+				float: left;
+				margin-left: 20px;
+			}
+			#canvas {
+				clear: both;
+			}
+		</style>
+	</head>
+	<body>
+	<ul id="menu">
+			<li>
+				<a id="gogh" href="#tab1">고흐</a>
+			</li>
+			<li>
+				<a id="gaudi" href="#tab2">가우디</a>
+			</li>
+			<li>
+				<a id="albrecht" href="#tab3">알브레히트 뒤러</a>
+			</li>
+		</ul>
+		<div id="canvas">
+			<div id="gogh_img">
+				<img src="http://farm3.static.flickr.com/2435/3687464186_5ca34c866c.jpg"/>
+			</div>
+			<div class="hide"  id="gaudi_img">
+				<img src="http://farm2.static.flickr.com/1027/5184060937_679f620225.jpg" />
+			</div>
+			<div class="hide"  id="albrecht_img">
+				<img src="http://farm5.static.flickr.com/4084/4979876994_5bce879910.jpg" />
+			</div>
+		</div>
+		<script type="text/javascript">
+			function addEvent(el, eType, fn, uC) {
+				if(el.addEventListener) {
+					el.addEventListener(eType, fn, uC);
+					return true;
+				} else if(el.attachEvent) {
+					return el.attachEvent('on' + eType, fn);
+				} else {
+					el['on' + eType] = fn;
+				}
+			}
+
+			function clickHandler(e) {
+				var id = e.target.id;
+				var t = document.getElementById(e.target.id + '_img');
+				var p = document.getElementById('canvas');
+				for(var i = 0; i < p.childNodes.length; i++) {
+					var c = p.childNodes[i];
+					if(c.nodeName == 'DIV') {
+						c.setAttribute('class', 'hide');
+					}
+				}
+				t.setAttribute('class', '');
+			}
+
+			addEvent(document.getElementById('gogh'), 'click', clickHandler)
+			addEvent(document.getElementById('gaudi'), 'click', clickHandler)
+			addEvent(document.getElementById('albrecht'), 'click', clickHandler)
+		</script>
+	</body>
+</html>
