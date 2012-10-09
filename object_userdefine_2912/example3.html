@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+		<!-- 객체 리터럴 -->
+		<script type="text/javascript">
+			var person = {
+				age : 30,
+				job : '개발자',
+				introduce : function() {
+					alert('저는 ' + this.age + '세의 ' + this.job + '입니다');
+				},
+				work : function() {
+					alert('coding');
+				}
+			}
+			alert(person.age);
+			person.introduce();
+		</script>
+	</head>
+	<body></body>
+</html>
