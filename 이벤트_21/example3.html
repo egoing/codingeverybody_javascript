@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+	</head>
+	<body>
+		<input type="text" id="test" />
+		<script type="text/javascript">
+			// id test인 텍스트 필드를 가져온다
+			var test = document.getElementById('test');
+
+			//이벤트 핸들러
+			function testHandler() {
+				alert('blur');
+			}
+
+			//attachEvent는 ie에서만 지원하기 때문에 attachEvent가 지원되는지 확인하기 위해서 조건문을 사용
+			if (test.addEventListener)// W3C DOM
+				test.addEventListener('blur', testHandler, false);
+			else if (test.attachEvent)// IE DOM
+				var r = test.attachEvent("on" + 'blur', testHandler);
+
+			//이벤트 핸들러2
+			function testHandler2() {
+				alert('blur2');
+			}
+
+			if (test.addEventListener)// W3C DOM
+				test.addEventListener('blur', testHandler2, false);
+			else if (test.attachEvent)// IE DOM
+				var r = test.attachEvent("on" + 'blur', testHandler2);
+
+		</script>
+	</body>
+</html>
+
