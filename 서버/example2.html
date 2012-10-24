@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+		<script type="text/javascript">
+			function load(e) {
+				var xmlhttp;
+				if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+					xmlhttp = new XMLHttpRequest();
+				} else {// code for IE6, IE5
+					xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+				}
+				xmlhttp.onreadystatechange = function() {
+					if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+						document.getElementById("output").innerHTML = xmlhttp.responseText;
+					}
+				}
+				xmlhttp.open("GET", "http://lab.opentutorials.org/receiver.php?nickname=" + document.getElementById('nickname').value, true);
+				xmlhttp.send();
+				return false;
+			}
+		</script>
+	</head>
+	<body>
+		<form action="http://lab.opentutorials.org/receiver.php" method="POST">
+			<label for="nickname">이름</label>
+			<input id="nickname" type="text" name="nickname" value="" />
+			<input type="submit" onclick="return load()" />
+		</form>
+		<textarea id="output"></textarea>
+	</body>
+</html>
+
