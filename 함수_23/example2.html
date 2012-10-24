@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+		<script type="text/javascript">
+			function sum(num1, num2) {
+				return num1 + num2;
+			}
+		</script>
+	</head>
+	<body>
+		<form>
+			<input type="button" onclick="alert(sum(1,1))" value="1+1" />
+			<br />
+			<input type="button" onclick="alert(sum(1,2))" value="1+2" />
+			<br />
+			<input type="button" onclick="alert(sum(1,3))" value="1+3" />
+			<br />
+			<br />
+			<br />
+			<input type="text" onchange="alert(sum(10,Number(this.value)))" />
+			+10
+		</form>
+	</body>
+</html>
