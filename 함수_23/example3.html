@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+		<script type="text/javascript">
+			var val = 'global';
+			function f_global(){
+				alert(val)	
+			}
+			function f_local(val){
+				alert(val);
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="global" onclick="f_global()" />
+		<input type="button" value="local" onclick="f_local('local')" />
+	</body>
+</html>
