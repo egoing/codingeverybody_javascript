@@ -15,14 +15,14 @@
 						document.getElementById("output").innerHTML = xmlhttp.responseText;
 					}
 				}
-				xmlhttp.open("GET", "http://lab.opentutorials.org/receiver.php?nickname=" + document.getElementById('nickname').value, true);
+				xmlhttp.open("GET", "./receiver.php?nickname=" + document.getElementById('nickname').value, true);
 				xmlhttp.send();
 				return false;
 			}
 		</script>
 	</head>
 	<body>
-		<form action="http://lab.opentutorials.org/receiver.php" method="POST">
+		<form action="http://lab.opentutorials.org/receiver.php" method="GET">
 			<label for="nickname">이름</label>
 			<input id="nickname" type="text" name="nickname" value="" />
 			<input type="submit" onclick="return load()" />
