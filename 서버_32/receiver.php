@@ -1,3 +1,3 @@
 <?php
-echo $_GET['nickname'].'님 안녕하세요';_
+echo $_GET['nickname'].'님 안녕하세요';
 ?>
