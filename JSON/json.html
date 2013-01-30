@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <meta charset="utf-8"/>
+        <script src="https://raw.github.com/douglascrockford/JSON-js/master/json2.js"></script>
+        <script>
+            function login(){
+                var userid = document.getElementById('userid').value;
+                var pwd = document.getElementById('pwd').value;
+                var xmlhttp;
+                if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                } else {// code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+                xmlhttp.onreadystatechange = function() {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    var resp = JSON.parse(xmlhttp.responseText);
+                    var str = '<ul>';
+                    for(name in resp){
+                        str += '<li>'+name+' : '+resp[name]+'</li>';
+                    }
+                    document.getElementById("list").innerHTML = str;
+                    }
+                }
+                var userObj = new Object();
+                userObj.userid = userid;
+                userObj.pwd = pwd;
+                xmlhttp.open("GET", './json.php?data='+JSON.stringify(userObj), true);
+                xmlhttp.send();
+                return false;
+            }
+        </script> 
+    </head>
+    <body>
+        <form>
+            <input type="text" id="userid" />
+            <input type="text" id="pwd" />
+            <input type="button" onclick="login()" value="조회" />
+        </form>   
+        <div id="list">
+             
+        </div>
+    </body>
+</html>
